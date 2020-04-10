@@ -1,0 +1,144 @@
+$h1: 2rem;
+$h2: 1.5rem;
+$h3: 1.25rem;
+$h4: 1rem;
+$h5: 0.75rem;
+
+$lg: 60em;
+
+:root {
+  --container-padding: 2rem;
+}
+
+html {
+  box-sizing: border-box;
+  @media (min-width: $lg) {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: $h3;
+  margin: 0;
+  @media (min-width: $lg) {
+    scroll-snap-type: inherit; /* NOTE appears to be needed for Safari? */
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: inherit;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+h2 {
+  font-size: $h2;
+}
+
+img {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: $h5;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.slide,
+.slide-group {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.slide {
+  min-height: 75vh;
+  padding: 3rem var(--container-padding);
+  @media (min-width: $lg) {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    height: 100vh;
+    min-height: none;
+    scroll-snap-align: start;
+  }
+}
+
+.slide > header {
+  @media (min-width: $lg) {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    z-index: 100;
+  }
+}
+
+.slide > main {
+  padding: 3rem 0;
+  @media (min-width: $lg) {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+}
+
+.slide > main figure {
+  @media (min-width: $lg) {
+    // TODO improve this
+    height: 100%;
+  }
+}
+
+.slide > main figure img {
+  @media (min-width: $lg) {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
+.slide > *:first-child,
+.slide header > *:first-child,
+.slide main > *:first-child {
+  margin-top: 0;
+}
+
+.sticky-footer,
+.sticky-header {
+  background-color: inherit;
+  color: inherit;
+  font-size: $h5;
+  padding: 0.5rem var(--container-padding);
+  position: sticky;
+}
+
+.sticky-footer > *,
+.sticky-header > * {
+  font-size: inherit;
+  margin: 0;
+}
+
+.sticky-header {
+  top: 0;
+}
+
+.sticky-footer {
+  bottom: 0;
+}

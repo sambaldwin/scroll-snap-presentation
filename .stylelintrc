@@ -1,0 +1,10 @@
+{
+  "plugins": ["stylelint-order"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-recommended-scss"
+  ],
+  "rules": {
+    "order/properties-alphabetical-order": true
+  }
+}

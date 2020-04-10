@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+
+    <main class="slides">
+      <section class="slide" style="--color-bg: #000;--color-text: #fff">
+        <h1>Title of presentation</h1>
+      </section>
+      <section class="slide-group">
+      {% set slideGroup = [
+        {"title": "Group 1", "bg": "#def"},
+        {"title": "Group 2", "bg": "#FEE2FF", "color": "blue"},
+        {"title": "Group 3", "bg": "#fed"}
+      ] %}
+      {% for group in slideGroup %}
+        <section class="slide-group" style="{{ '--color-bg:' + group.bg + ';' if group.bg }} {{ '--color-text:' + group.color + ';' if group.color }}">
+          <header class="sticky-header">
+            <h2>{{ group.title }}</h2>
+          </header>
+          <section class="slide">
+            <header>
+              <h2>Slide title</h2>
+            </header>
+            <main>
+              <figure>
+                <img src="https://placehold.it/600x800" alt="">
+                <figcaption>Caption test</figcaption>
+              </figure>
+            </main>
+          </section>
+          <section class="slide">
+            <p>Slide text</p>
+          </section>
+          <footer class="sticky-footer">
+            <p>&copy; Sam Baldwin</p>
+          </footer>
+
+        </section>
+      {% endfor %}
+      {# <footer class="sticky-footer">
+        <p>&copy; Sam Baldwin</p>
+      </footer> #}
+      </section>
+      <section class="slide" style="--color-bg: #000; --color-text: #fff">
+        <p>Thank you</p>
+      </section>
+    </main>
+
+  </body>
+</html>
